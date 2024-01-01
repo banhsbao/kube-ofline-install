@@ -69,7 +69,7 @@ func MinutePeriodSchedule(currentDir string, kissh string, logName string, mode 
 			stu, err_stu := ReadFile(currentDir + "/data/output" + subProcessDir + "/status.txt")
 			statusFileInfo, _ := os.Stat(currentDir + "/data/output" + subProcessDir + "/status.txt")
 			statusFileStat := statusFileInfo.Sys().(*syscall.Stat_t)
-			modfiyTime, _ := time.Parse("2006-01-02 15:04", time.Unix(int64(statusFileStat.Mtimespec.Sec), 0).Format("2006-01-02 15:04"))
+			modfiyTime, _ := time.Parse("2006-01-02 15:04", time.Unix(int64(statusFileStat.Mtim.Sec), 0).Format("2006-01-02 15:04"))
 			currentTime, _ := time.Parse("2006-01-02 15:04", curTime)
 			installTime, _ := time.Parse("2006-01-02 15:04", instime)
 			layoutName := "install"
